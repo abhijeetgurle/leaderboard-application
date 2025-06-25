@@ -6,10 +6,10 @@ from src.utils.singleton import SingletonMeta
 
 
 class KafkaConsumerClient(metaclass=SingletonMeta):
-    def __init__(self):
+    def __init__(self, group_id: str):
         self.bootstrap_server = 'localhost:9092'
         self.topic = 'score_updates'
-        self.group_id = 'cass-updater'
+        self.group_id = group_id
         self.consumer = KafkaConsumer(
             self.topic,
             bootstrap_servers=self.bootstrap_server,

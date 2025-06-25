@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 
+from src.consumer.cassandra_consumer import CassandraConsumer
+from src.consumer.redis_consumer import RedisConsumer
 from src.service.kafka_producer import KafkaProducerClient
 
 app = Flask(__name__)
@@ -20,4 +22,6 @@ def submit_score():
 
 
 if __name__ == '__main__':
+    redis_consumer = RedisConsumer()
+    cassandra_consumer = CassandraConsumer()
     app.run(debug=True)

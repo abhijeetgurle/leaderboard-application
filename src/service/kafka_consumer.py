@@ -5,7 +5,7 @@ from kafka import KafkaConsumer
 from src.utils.singleton import SingletonMeta
 
 
-class KafkaConsumerClient(metaclass=SingletonMeta):
+class KafkaConsumerClient:
     def __init__(self, group_id: str):
         self.bootstrap_server = 'localhost:9092'
         self.topic = 'score_updates'
@@ -19,5 +19,6 @@ class KafkaConsumerClient(metaclass=SingletonMeta):
 
     def consume(self):
         for message in self.consumer:
+            print('Message from kafka: ', message)
             yield message.value
 

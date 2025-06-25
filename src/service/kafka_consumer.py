@@ -2,10 +2,12 @@ import json
 
 from kafka import KafkaConsumer
 
+from src.utils.singleton import SingletonMeta
 
-class KafkaConsumerClient:
+
+class KafkaConsumerClient(metaclass=SingletonMeta):
     def __init__(self):
-        self.bootstrap_server = 'http://localhost:9092'
+        self.bootstrap_server = 'localhost:9092'
         self.topic = 'score_updates'
         self.group_id = 'cass-updater'
         self.consumer = KafkaConsumer(

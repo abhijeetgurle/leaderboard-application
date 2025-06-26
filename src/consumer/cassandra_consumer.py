@@ -1,6 +1,5 @@
 from src.dao.leaderboard_dao import LeaderboardDAO
 from src.service.kafka_consumer import KafkaConsumerClient
-from src.utils.singleton import SingletonMeta
 
 
 class CassandraConsumer:

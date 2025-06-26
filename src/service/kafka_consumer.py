@@ -2,8 +2,6 @@ import json
 
 from kafka import KafkaConsumer
 
-from src.utils.singleton import SingletonMeta
-
 
 class KafkaConsumerClient:
     def __init__(self, group_id: str):
